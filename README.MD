@@ -5,14 +5,22 @@
 自进化量子接收机：基于 AlphaZero 风格强化学习的 KPSK 量子态判别
 
 --- 3/26 Update ---
+
 整理了代码，新增复杂kpsk环境，隔离不同功能，结构如下：
+
 --scripts/
+
 ----run_benchmark.py （主程序入口，通过python scripts/run_benchmark.py执行）
+
 --src/self_improving_quantum_receiver
---baselines （提供了helstrom和decision tree作为baselines, helstrom给出公式计算作为理论上限，decision tree利用贝叶斯后验在每一步选择最佳位移实现模拟上的最优解）
---benchmarks（主程序，训练RL，并对各种方案如helstrom/decision tree进行比较，给出准确率，计算资源等维度对比）
---environment（给出两种kpsk环境，一个是普通环境，K=4，2D平面上有四种候选状态，相邻态夹角为90°，一个是chirped环境，相位和每步幅度随着时间按类似正弦波动，模拟复杂的量子态情况）
---methods（AlphaZero like RL的主功能函数，给出RL框架，reward net + value net双网络结构，RL后辅助搜索以及模型训练过程）
+
+----baselines （提供了helstrom和decision tree作为baselines, helstrom给出公式计算作为理论上限，decision tree利用贝叶斯后验在每一步选择最佳位移实现模拟上的最优解）
+
+----benchmarks（主程序，训练RL，并对各种方案如helstrom/decision tree进行比较，给出准确率，计算资源等维度对比）
+
+----environment（给出两种kpsk环境，一个是普通环境，K=4，2D平面上有四种候选状态，相邻态夹角为90°，一个是chirped环境，相位和每步幅度随着时间按类似正弦波动，模拟复杂的量子态情况）
+
+----methods（AlphaZero like RL的主功能函数，给出RL框架，reward net + value net双网络结构，RL后辅助搜索以及模型训练过程）
 
 ## Overview | 项目简介
 
